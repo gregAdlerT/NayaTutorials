@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>
+    <bean class="lesson06real_spring.hw_inject_random_string.soldiers.config.InjectRandomStringAnnotationBeanPostProcessor"/>
+    <bean class="lesson06real_spring.hw_inject_random_string.soldiers.config.InjectRandomIntAnnotationBeanPostProcessor"/>
+    <bean class="lesson06real_spring.hw_inject_random_string.soldiers.config.GenerateObjectsAnnotationBeanPostProcessor"/>
+    
+    <bean name="army" class="lesson06real_spring.hw_inject_random_string.soldiers.service.Army"/>
+    
+
+    <bean name="soldier" class="lesson06real_spring.hw_inject_random_string.soldiers.Soldier">
+        <!--        <constructor-arg type="int" value="10"/>-->
+        <!--        <constructor-arg index="1" value="Greg"/>-->
+        <!--        <constructor-arg index="2" value="Adler"/>-->
+    </bean>
+    
+</beans>

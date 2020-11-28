@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="lesson07beanFactory_qualifier_profile_aspect.refresh_prototype_in_singleton.ColorFrame">
+        <lookup-method bean="color"/>
+    </bean>
+    
+    <bean id="color" class="java.awt.Color">
+        <constructor-arg type="int" value="250"/>
+        <constructor-arg type="int" value="250"/>
+        <constructor-arg type="int" value="0"/>
+    </bean>
+</beans>

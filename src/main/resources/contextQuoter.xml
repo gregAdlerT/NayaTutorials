@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <import resource="infra.xml"/>
+    <context:property-placeholder location="classpath:application.properties" ignore-resource-not-found="true"/>
+    
+    
+<!--    <bean id="integerFactory" class="lesson_07_beanFactory.xml_introduction.bpp.IntegerFactory"/>-->
+<!--    -->
+<!--    <bean class="java.lang.Integer" factory-bean="integerFactory" factory-method="createInteger"/>-->
+    
+    <bean id="shakespeare" class="lesson07beanFactory_qualifier_profile_aspect.xml_introduction.quoterss.ShakespeareQuoter">
+        <property name="message" value="${shake}"/>
+    </bean>
+    
+    <bean name="anotherMessage" class="java.lang.String" >
+        <constructor-arg value="Trust me"/>
+    </bean>
+    
+    <bean id="terminator" class="lesson07beanFactory_qualifier_profile_aspect.xml_introduction.quoterss.TerminatorQuoter" destroy-method="killAll">
+        <property name="messages">
+            <list>
+                <value>I`ll be bach</value>
+                <ref bean="anotherMessage"/>
+                <value>Astalavista baby</value>
+            </list>
+        </property> 
+    </bean>
+    
+    <bean name="talkingRobot" class="lesson06real_spring.hw_inject_random_string.robot.TalkingRobotImpl">
+        <property name="quotes" >
+            <list>
+                <ref bean="shakespeare"/>
+                <ref bean="terminator"/>
+            </list>
+        </property>
+    </bean>
+    
+</beans>
